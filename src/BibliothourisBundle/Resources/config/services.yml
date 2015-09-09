@@ -1,0 +1,4 @@
+services:
+    bibliothouris.book_service:
+        class: BibliothourisBundle\Service\BookService
+        arguments: [@doctrine.orm.entity_manager]

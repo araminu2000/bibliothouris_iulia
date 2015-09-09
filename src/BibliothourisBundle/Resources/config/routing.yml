@@ -1,0 +1,3 @@
+bibliothouris_number:
+    pattern:     /book
+    defaults: { _controller: BibliothourisBundle:Book:index }

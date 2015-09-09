@@ -1,0 +1,2 @@
+bibliothouris:
+    resource: "@BibliothourisBundle/Resources/config/routing.yml"

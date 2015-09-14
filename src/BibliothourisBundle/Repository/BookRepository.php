@@ -9,6 +9,10 @@ class BookRepository extends EntityRepository
 {
     public function getBookInfo()
     {
-        return 'repoooo';
+        return $this->findAll();
     }
+
+
+
+
 }

@@ -1,3 +1,22 @@
-bibliothouris_number:
+bibliothouris_index:
     pattern:     /book
     defaults: { _controller: BibliothourisBundle:Book:index }
+
+
+bibliothouris_insert:
+    pattern:     /book/insert
+    defaults: { _controller: BibliothourisBundle:Book:insert }
+
+
+bibliothouris_save:
+    pattern:     /book/save
+    defaults: { _controller: BibliothourisBundle:Book:save }
+
+bibliothouris_list:
+    pattern:     /book/list
+    defaults: { _controller: BibliothourisBundle:Book:list }
+
+
+bibliothouris_list:
+    pattern:     /book/show
+    defaults: { _controller: BibliothourisBundle:Book:show }

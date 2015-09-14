@@ -32,11 +32,19 @@ abstract class BaseEntity
      */
     protected $updatedAt;
 
+
+    /**
+     * @var bool
+     * @ORM\Column(type="boolean", name="status")
+     */
+    protected $status;
+
     /** @ORM\PrePersist */
     public function prePersistHook()
     {
         $this->setCreatedAt(new \DateTime());
         $this->setUpdatedAt(new \DateTime());
+        $this->status=1;
     }
 
     /** @ORM\PreUpdate */
@@ -91,5 +99,23 @@ abstract class BaseEntity
     public function getUpdatedAt()
     {
         return $this->updatedAt;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param boolean $status
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+        return $this;
     }
 }

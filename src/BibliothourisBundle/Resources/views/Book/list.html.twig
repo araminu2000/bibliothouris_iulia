@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Ceva!{% endblock %}
+
+{% block body %}
+    <table border="1px">
+        <th>Title</th>
+        {% for book in books %}
+        <tr>
+            <td> <p>{{ book.id  }}</p> </td>
+            <td> <p>{{ book.name  }}</p> </td>
+        </tr>
+        {% endfor %}
+
+    </table>
+    {% endblock %}
+

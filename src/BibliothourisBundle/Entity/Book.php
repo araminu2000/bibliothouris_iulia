@@ -14,5 +14,28 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Book extends BaseEntity
 {
+    /**
+     * @var string
+     * @ORM\Column(type="string", name="name", nullable=true)
+     */
+    protected $name;
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+        return $this;
+    }
 
 }

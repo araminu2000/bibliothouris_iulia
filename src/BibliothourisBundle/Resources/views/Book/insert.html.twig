@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Books</title>
+{% extends 'base.html.twig' %}
 
-</head>
-<body>
-
-<script src="js/main.js"></script>
+{% block body %}
 <div id="id1">
     <form id="formular" action="{{ url('bibliothouris_save')  }}" method="POST">
 
@@ -17,24 +11,12 @@
         <input type="text" name="name" placeholder="ISBN (mandatory)" />
         <br/>
 
-        {#<label>#}
-            {#<span>Book Title     </span>#}
-            {#<input type="text" name="title" placeholder="Book title" />#}
-        {#</label>#}
-        {#<br/>#}
+        <label>
+            <span>Author     </span>
 
-        {#<label>#}
-            {#<span>Author Last Name</span>#}
-            {#<input type="text" name="firstName" placeholder="Author first name" />#}
-        {#</label>#}
-        {#<br/>#}
-
-        {#<label>#}
-            {#<span>Author First Name</span>#}
-            {#<input type="text" name="lastName" placeholder="Author last name" />#}
-        {#</label>#}
-        {#<br/>#}
-
+        </label>
+        <input type="text" name="author" placeholder="Author (mandatory)" />
+        <br/>
 
 
         <button id="submit-add-form" type="submit">Submit</button>
@@ -42,12 +24,9 @@
 
 
 
+
     </form>
 
-    <a href="{{ path('www.php.dev/app_dev.php/books/list') }}#home">Home</a>
 
 </div>
-
-
-</body>
-</html>
+{% endblock %}

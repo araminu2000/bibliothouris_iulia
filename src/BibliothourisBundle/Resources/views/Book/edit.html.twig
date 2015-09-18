@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="id1">
+
+        <form id="formular" action="{{ url('bibliothouris_update',{bookId:book.id})  }}" method="POST">
+
+            <label>
+                <span>Book name      </span>
+
+            </label>
+            <input type="text" value="{{ book.name }}" name="name" placeholder="ISBN (mandatory)" />
+            <br/>
+
+            <label>
+                <span>Author     </span>
+
+            </label>
+            <input type="text" value="{{ book.author }}" name="author" placeholder="Author (mandatory)" />
+            <br/>
+
+
+            <button id="submit-add-form" type="submit">Submit</button>
+
+
+
+
+
+        </form>
+
+
+    </div>
+{% endblock %}

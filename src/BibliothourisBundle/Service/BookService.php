@@ -23,10 +23,11 @@ class BookService
         return $bookRepository->createAction();
     }
 
-    public function insert($data)
+    public function insert($name,$author)
     {
         $book = new Book();
-        $book->setName($data);
+        $book->setName($name);
+        $book->setAuthor($author);
 
         $em = $this->manager;
 
@@ -34,11 +35,12 @@ class BookService
         $em->flush();
     }
 
-    public function update()
+    public function update($bookId,$name,$author)
     {
         $bookRepository = $this->manager->getRepository('BibliothourisBundle:Book');
-        $book=$bookRepository->find(2);
-        $book->setName('lalala');
+        $book=$bookRepository->find($bookId);
+        $book->setName($name);
+        $book->setAuthor($author);
 
 
         $em = $this->manager;
@@ -46,12 +48,10 @@ class BookService
         $em->flush();
     }
 
-
-    public function findByName()
+    public function findById($bookId)
     {
         $bookRepository = $this->manager->getRepository('BibliothourisBundle:Book');
-        //$book=$bookRepository->findBy(["name"=>"lalala"]);
-        $book=$bookRepository->findByName("lalala");
+        $book=$bookRepository->findOneBy(['id'=>$bookId]);
 
         return $book;
     }
@@ -63,6 +63,29 @@ class BookService
         return $books;
 
 
+    }
+
+    public function findBorrowedBooks($userId)
+    {
+        $bookRepository = $this->manager->getRepository('BibliothourisBundle:Book');
+//        $books=$bookRepository->testDQL();
+        $books=$bookRepository->findBorrowedBooks($userId);
+        return $books;
+
+    }
+
+    public function returnBook($bookId)
+    {
+        $bookRepository = $this->manager->getRepository('BibliothourisBundle:Book');
+        $book=$bookRepository->find($bookId);
+        $book->setUser(null);
+        //daca vreau alt id fac $user=findById(4); setUser($user);
+
+        $em = $this->manager;
+        $em->persist($book);
+        $em->flush();
+
+        return $book;
     }
 
 

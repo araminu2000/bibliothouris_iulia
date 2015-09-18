@@ -3,11 +3,24 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <header>{% block header %}
+                <img src="{{ asset('bundles/bibliothouris/img/logo.png') }}" height="100" width="850" align="center" />
+            {% endblock %}
+        </header>
+
+        {% block stylesheets %}
+            <link rel="stylesheet" type="text/css" href="{{ asset('bundles/bibliothouris/css/style.css') }}">
+        {% endblock %}
+
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+    {% include 'BibliothourisBundle:Book:header.html.twig' %}
+        {% block body %}
+        {% endblock %}
+
+        {% block javascripts %}
+            <script src="{{ asset('js/script.js') }}"></script>
+        {% endblock %}
     </body>
 </html>

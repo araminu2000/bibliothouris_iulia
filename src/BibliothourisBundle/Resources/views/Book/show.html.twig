@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ceva!{% endblock %}
+
+{% block body %}
+
+
+    <div class="divStyleTable" >
+        <table border="0">
+            <th>Id</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Actions</th>
+            <tr>
+                <td> <p>{{ book.id  }}</p> </td>
+                <td> <p>{{ book.name  }}</p> </td>
+                <td> <p>{{ book.author  }}</p> </td>
+                <td> <a href="{{ path('bibliothouris_edit',{bookId:book.id}) }}">Edit</a></td>
+            </tr>
+
+
+        </table>
+    </div>
+{% endblock %}
+

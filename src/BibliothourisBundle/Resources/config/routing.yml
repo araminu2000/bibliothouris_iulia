@@ -2,6 +2,9 @@ bibliothouris_index:
     pattern:     /book
     defaults: { _controller: BibliothourisBundle:Book:index }
 
+bibliothouris_root:
+    pattern:     /
+    defaults: { _controller: BibliothourisBundle:Book:index }
 
 bibliothouris_insert:
     pattern:     /book/insert
@@ -17,6 +20,28 @@ bibliothouris_list:
     defaults: { _controller: BibliothourisBundle:Book:list }
 
 
-bibliothouris_list:
-    pattern:     /book/show
+bibliothouris_show:
+    pattern:     /book/show/{bookId}
     defaults: { _controller: BibliothourisBundle:Book:show }
+
+bibliothouris_edit:
+    pattern:     /book/edit/{bookId}
+    defaults: { _controller: BibliothourisBundle:Book:edit }
+
+bibliothouris_update:
+    pattern:     /book/update/{bookId}
+    defaults: { _controller: BibliothourisBundle:Book:update }
+
+#bibliothouris_test:
+#    pattern:     /book/test
+#    defaults: { _controller: BibliothourisBundle:Book:test }
+
+bibliothouris_borrowedBooks:
+    pattern:     /book/borrowedBooks
+    defaults: { _controller: BibliothourisBundle:Book:showBorrowedBooks }
+
+bibliothouris_return:
+    pattern:     /book/returnBook/{bookId}
+    defaults: { _controller: BibliothourisBundle:Book:returnBook }
+
+

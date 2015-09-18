@@ -2,8 +2,8 @@
 
 namespace BibliothourisBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
@@ -18,9 +18,33 @@ class User extends BaseUser
      */
     protected $id;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Book", mappedBy="user")
+     **/
+    private $borrowedBooks;
+
     public function __construct()
     {
         parent::__construct();
         // your own logic
     }
+
+    /**
+     * @return mixed
+     */
+    public function getBorrowedBooks()
+    {
+        return $this->borrowedBooks;
+    }
+
+    /**
+     * @param mixed $borrowedBooks
+     * @return $this
+     */
+    public function setBorrowedBooks($borrowedBooks)
+    {
+        $this->borrowedBooks = $borrowedBooks;
+        return $this;
+    }
+
 }

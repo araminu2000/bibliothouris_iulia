@@ -1,1 +1,14 @@
-first page
+{% extends 'base.html.twig' %}
+
+{% block title %}Ceva!{% endblock %}
+
+{% block body %}
+
+    <img src="{{ asset('bundles/bibliothouris/img/books.jpg') }}" height="600" width="850"  />
+    </div>
+    {% for flashMessage in app.session.flashbag.get('notice') %}
+    <div class="flash-notice">
+        {{ flashMessage }}
+    </div>
+{% endfor %}
+{% endblock %}
